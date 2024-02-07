@@ -14,11 +14,5 @@ public class Main {
 //        UserController controller = new UserController(repo);
 //        MyApplication app = new MyApplication(controller);
 //        app.start();
-        Car car = new Car();
-        car.setCarNumber("AMX3212");
-        car.setBrand("BMW");
-        car.setPrice(43453);
-        car.setModel("MERIN");
-        System.out.println(car);
     }
 }

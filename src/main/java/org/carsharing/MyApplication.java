@@ -15,13 +15,17 @@ public class MyApplication {
     }
 
     public void start() {
+        System.out.println("Car Sharing from (Bauyrzhan, Azamat, Sabina) SE-2313");
         while (true) {
             System.out.println();
-            System.out.println("Welcome to My Application");
+            System.out.println("Welcome Car Sharing");
             System.out.println("Select option:");
             System.out.println("1. Get all users");
             System.out.println("2. Get user by id");
             System.out.println("3. Create user");
+            System.out.println("4. Get all cars");
+            System.out.println("5. Add a new car");
+            System.out.println("5. Rent a car");
             System.out.println("0. Exit");
             System.out.println();
             try {
