@@ -1,2 +1,4 @@
-package org.carsharing.services.interfaces;public interface CarServiceInterface {
+package org.carsharing.services.interfaces;
+
+public interface CarServiceInterface {
 }

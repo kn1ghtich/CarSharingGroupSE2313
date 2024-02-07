@@ -1,2 +1,4 @@
-package org.carsharing.exceptions;public class EntityNotFoundException {
+package org.carsharing.exceptions;
+
+public class EntityNotFoundException {
 }

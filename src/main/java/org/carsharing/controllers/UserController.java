@@ -1,2 +1,4 @@
-package org.carsharing.controllers;public class UserController {
+package org.carsharing.controllers;
+
+public class UserController {
 }

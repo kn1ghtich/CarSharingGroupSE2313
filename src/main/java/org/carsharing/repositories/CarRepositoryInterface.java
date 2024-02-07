@@ -1,2 +1,4 @@
-package org.carsharing.repositories;public interface CarRepositoryInterface {
+package org.carsharing.repositories;
+
+public interface CarRepositoryInterface {
 }

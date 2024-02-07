@@ -1,2 +1,4 @@
-package org.carsharing;public class MyApplication {
+package org.carsharing;
+
+public class MyApplication {
 }

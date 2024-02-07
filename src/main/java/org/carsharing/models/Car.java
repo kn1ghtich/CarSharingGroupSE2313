@@ -1,2 +1,4 @@
-package org.carsharing.models;public class Car {
+package org.carsharing.models;
+
+public class Car {
 }
