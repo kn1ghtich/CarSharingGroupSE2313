@@ -5,11 +5,11 @@ import org.carsharing.controllers.UserController;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class MyApplication {
+public class CarSharingService {
     private final UserController controller;
     private final Scanner scanner;
 
-    public MyApplication(UserController controller) {
+    public CarSharingService(UserController controller) {
         this.controller = controller;
         scanner = new Scanner(System.in);
     }
@@ -25,7 +25,9 @@ public class MyApplication {
             System.out.println("3. Create user");
             System.out.println("4. Get all cars");
             System.out.println("5. Add a new car");
-            System.out.println("5. Rent a car");
+            System.out.println("6. Get the car by id");
+            System.out.println("7. Rent a car");
+            System.out.println("8. Return the car");
             System.out.println("0. Exit");
             System.out.println();
             try {

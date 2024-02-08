@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="30bedc9e-1331-4e8f-9d33-2358693c18dc" name="Changes" comment="Car Sharing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/CarSharingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707330610993</updated>
-      <workItem from="1707330612072" duration="7340000" />
+      <workItem from="1707330612072" duration="8632000" />
     </task>
     <task id="LOCAL-00001" summary="Car Sharing">
       <option name="closed" value="true" />
@@ -80,7 +79,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707336577647</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Car Sharing">
+      <option name="closed" value="true" />
+      <created>1707338512777</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707338512777</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
