@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class CarSharingService implements ICarSharingService {
     ICarSharingRepository repo;
-    Scanner scanner;
+    Scanner scanner = new Scanner(System.in);
 
     public CarSharingService(ICarSharingRepository repo){
         this.repo = repo;
@@ -15,11 +15,16 @@ public class CarSharingService implements ICarSharingService {
     public String createUser() {
         String name, surname;
 
-        System.out.println("Please enter name");
+        System.out.print("Please enter name: ");
         name = scanner.next();
-        System.out.println("Please enter surname");
+        System.out.print("Please enter surname: ");
         surname = scanner.next();
         repo.createUser(name , surname);
         return null;
+    }
+
+    @Override
+    public void showAllUsers(){
+        repo.ShowAllUsers();
     }
 }

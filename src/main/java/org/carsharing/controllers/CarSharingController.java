@@ -1,7 +1,5 @@
 package org.carsharing.controllers;
 
-import org.carsharing.repositories.interfaces.ICarSharingRepository;
-import org.carsharing.service.CarSharingService;
 import org.carsharing.service.interfaces.ICarSharingService;
 
 import java.util.Scanner;
@@ -15,6 +13,7 @@ public class CarSharingController {
     }
 
     public String getAllUsers() {
+        service.showAllUsers();
         return null;
     }
 
