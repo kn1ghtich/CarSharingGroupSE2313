@@ -1,5 +1,5 @@
 package org.carsharing.service.interfaces;
-
+import org.carsharing.models.*;
 public interface ICarSharingService {
 
 
@@ -9,4 +9,6 @@ public interface ICarSharingService {
     String createUser();
 
     void showAllUsers();
+
+    void getUserById();
 }

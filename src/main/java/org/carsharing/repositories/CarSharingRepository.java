@@ -2,6 +2,7 @@ package org.carsharing.repositories;
 
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
 import org.carsharing.data.interfaces.IDB;
+import org.carsharing.models.*;
 
 import java.sql.*;
 
@@ -12,9 +13,10 @@ public class CarSharingRepository implements ICarSharingRepository {
         System.out.println("Successfull connection");
         this.db = db;
     }
+
     @Override
-    public void createUser(String name, String surname){
-        Connection con  = null;
+    public void createUser(String name, String surname) {
+        Connection con = null;
         try {
             con = db.getConnection();
             String sql = "INSERT INTO public.users(name, surname) VALUES (?, ?);";
@@ -22,29 +24,30 @@ public class CarSharingRepository implements ICarSharingRepository {
 
             st.setString(1, name);
             st.setString(2, surname);
-
             st.execute();
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
         } finally {
             try {
                 if (con != null) con.close();
-            } catch (SQLException e) { System.out.println("sql error: " + e.getMessage()); }
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
         }
     }
 
     @Override
     public void ShowAllUsers() {
-        Connection con  = null;
+        Connection con = null;
         try {
             con = db.getConnection();
             String sql = "SELECT * FROM public.users;";
             Statement st = con.createStatement();
 
-            ResultSet rs =  st.executeQuery(sql);
+            ResultSet rs = st.executeQuery(sql);
 
-            while (rs.next()){
-                System.out.println(rs.getString("name")
+            while (rs.next()) {
+                System.out.println(rs.getInt("id")  rs.getString("name")
                         + rs.getString("surname"));
             }
         } catch (SQLException e) {
@@ -52,9 +55,37 @@ public class CarSharingRepository implements ICarSharingRepository {
         } finally {
             try {
                 if (con != null) con.close();
-            } catch (SQLException e) { System.out.println("sql error: " + e.getMessage()); }
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
         }
     }
+
+    @Override
+    public void getUserById() {
+
+    }
+
+    public void getUserById(int id) {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM public.users WHERE id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            System.out.println(rs.getString("name") + " " + rs.getString("surname"));
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+    }
+
     /*
     OVerride mtethod ex
 

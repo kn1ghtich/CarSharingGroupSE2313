@@ -1,7 +1,7 @@
 package org.carsharing.controllers;
 
 import org.carsharing.service.interfaces.ICarSharingService;
-
+import org.carsharing.models.*;
 import java.util.Scanner;
 
 public class CarSharingController {
@@ -12,18 +12,43 @@ public class CarSharingController {
         this.service = service;
     }
 
+    public void getUser() {
+        int id = Integer.parseInt(scanner.next());
+        service.getUserById();
+    }
+
+    public void createUser() {
+        String response = service.createUser();
+        System.out.println(response);
+    }
+
     public String getAllUsers() {
         service.showAllUsers();
         return null;
     }
+///////////////////////
+    public void getUserById() {
 
-    public String getUser(int id) {
-        return null;
+        service.getUserById();
     }
 
-    public String createUser() {
-        String response = service.createUser();
-        System.out.println(response);
-        return response;
+    public void showPHistoryById() {
+    }
+
+    public void rentCar() {
+    }
+
+    public void returnCar() {
+    }
+
+    public void addCar() {
+    }
+
+    public void getAllCars() {
+    }
+
+
+
+    public void getcarByNumber() {
     }
 }

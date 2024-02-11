@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30bedc9e-1331-4e8f-9d33-2358693c18dc" name="Changes" comment="Car Sharing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/models/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/controllers/CarSharingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/controllers/CarSharingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/CarSharingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/CarSharingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/interfaces/ICarSharingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/interfaces/ICarSharingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/service/CarSharingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/service/CarSharingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/service/interfaces/ICarSharingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/service/interfaces/ICarSharingService.java" afterDir="false" />
     </list>
@@ -19,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,6 +57,9 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/jmiha/IdeaProjects/CarSharingGroupSE2313/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -71,6 +78,11 @@
       <workItem from="1707460729072" duration="6663000" />
       <workItem from="1707483571625" duration="8000" />
       <workItem from="1707489341567" duration="3447000" />
+      <workItem from="1707502445966" duration="1415000" />
+      <workItem from="1707636815660" duration="382000" />
+      <workItem from="1707637617492" duration="1507000" />
+      <workItem from="1707643106623" duration="303000" />
+      <workItem from="1707643814121" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="Car Sharing">
       <option name="closed" value="true" />
@@ -128,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707494831644</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Car Sharing">
+      <option name="closed" value="true" />
+      <created>1707502566322</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707502566322</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
