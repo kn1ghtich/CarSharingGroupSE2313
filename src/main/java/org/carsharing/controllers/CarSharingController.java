@@ -12,42 +12,36 @@ public class CarSharingController {
         this.service = service;
     }
 
-    public void getUser() {
-        int id = Integer.parseInt(scanner.next());
-        service.getUserById();
-    }
-
     public void createUser() {
         String response = service.createUser();
         System.out.println(response);
     }
 
-    public String getAllUsers() {
+    public void showAllUsers() {
         service.showAllUsers();
-        return null;
     }
-///////////////////////
-    public void getUserById() {
-
-        service.getUserById();
+    public void showUserById() {
+        service.showUserById();
     }
 
     public void showPHistoryById() {
+
     }
 
     public void rentCar() {
+        String response;
     }
 
     public void returnCar() {
+        String response;
     }
 
     public void addCar() {
+
     }
 
     public void getAllCars() {
     }
-
-
 
     public void getcarByNumber() {
     }

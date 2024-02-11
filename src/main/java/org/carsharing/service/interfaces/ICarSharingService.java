@@ -1,5 +1,5 @@
 package org.carsharing.service.interfaces;
-import org.carsharing.models.*;
+
 public interface ICarSharingService {
 
 
@@ -10,5 +10,5 @@ public interface ICarSharingService {
 
     void showAllUsers();
 
-    void getUserById();
+    void showUserById();
 }
