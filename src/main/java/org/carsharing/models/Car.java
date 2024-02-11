@@ -5,10 +5,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
+
 @NoArgsConstructor
 @Getter @Setter
 
 public class Car {
-    int d;
+    String carnumber, brand, model;
+    public Car (String carnumber, String brand, String model){
+        this.carnumber = carnumber;
+        this.brand = brand;
+        this.model = model;
+    }
+    @Override
+    public String toString(){
+        return carnumber + " " + brand + " " + model;
+    }
 }

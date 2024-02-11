@@ -11,4 +11,7 @@ public interface ICarSharingService {
     void showAllUsers();
 
     void showUserById();
+
+    String addCar();
+    void showAllCars();
 }

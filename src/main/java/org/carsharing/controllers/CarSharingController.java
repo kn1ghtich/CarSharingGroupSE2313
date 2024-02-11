@@ -37,10 +37,12 @@ public class CarSharingController {
     }
 
     public void addCar() {
-
+        String response = service.addCar();
+        System.out.println(response);
     }
 
-    public void getAllCars() {
+    public void showAllCars() {
+        service.showAllCars();
     }
 
     public void getcarByNumber() {

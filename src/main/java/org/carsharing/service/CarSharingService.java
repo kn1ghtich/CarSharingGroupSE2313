@@ -1,5 +1,6 @@
 package org.carsharing.service;
 
+import org.carsharing.models.Car;
 import org.carsharing.models.User;
 import org.carsharing.service.interfaces.ICarSharingService;
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
@@ -23,6 +24,7 @@ public class CarSharingService implements ICarSharingService {
         System.out.print("Please enter surname: ");
         surname = scanner.next();
         boolean response = repo.createUser(name, surname);
+
         return ( response ? "User was created successfully!" : "User was not created successfully :(");
     }
 
@@ -48,11 +50,23 @@ public class CarSharingService implements ICarSharingService {
 
     public void returnCar() {
     }
+//7
+    public String  addCar() {
+        String carnumber, brand, model;
+        System.out.print("Please enter car number: ");
+        carnumber = scanner.next();
+        System.out.print("Please enter brand: ");
+        brand = scanner.next();
+        System.out.print("Please enter model: ");
+        model = scanner.next();
+        boolean response = repo.addCar(carnumber, brand, model);
 
-    public void addCar() {
+        return (response ? "Car was added successfully!" : "Car was not added successfully :(");
     }
 
-    public void getAllCars() {
+    public void showAllCars() {
+        List<Car> cars = repo.showAllCars();
+        cars.forEach(car -> System.out.println(car));
     }
 
     public void getcarByNumber() {

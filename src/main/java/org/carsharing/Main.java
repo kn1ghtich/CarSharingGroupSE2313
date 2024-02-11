@@ -58,14 +58,14 @@ public class Main {
 //                        controller.returnCar();
 //
 //                        break;
-//                    case 7:
-//                        //"7. Add Car"
-//                        controller.addCar();
-//                        break;
-//                    case 8:
-//                        //"8. Get All Cars"
-//                        controller.getAllCars();
-//                        break;
+                    case 7:
+                        //"7. Add Car"
+                        controller.addCar();
+                        break;
+                    case 8:
+                        //"8. Get All Cars"
+                        controller.showAllCars();
+                        break;
 //                    case 9:
 //                        //"9. Get car by car number"
 //                        controller.getcarByNumber();
