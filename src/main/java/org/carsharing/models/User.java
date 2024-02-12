@@ -11,7 +11,18 @@ import lombok.Setter;
 
 public class User {
     private int id;
-    private String  name, surname;
+    private String name, surname,  phonenumber, email, password, tariff;
+    private int money;
+
+    public User (int id, String name, String surname, String phonenumber, String  email, String  password, int money){
+        setId(id);
+        setName(name);
+        setSurname(surname);
+        setPhonenumber(phonenumber);
+        setEmail(email);
+        setPassword(password);
+        setMoney(money);
+    }
 
     public String toString(){
         return id + " " + name + " " + surname;

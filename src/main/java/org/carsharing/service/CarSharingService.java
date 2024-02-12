@@ -16,17 +16,29 @@ public class CarSharingService implements ICarSharingService {
         this.repo = repo;
     }
 
-    @Override
-    public String createUser() {
-        String name, surname;
-        System.out.print("Please enter name: ");
-        name = scanner.next();
-        System.out.print("Please enter surname: ");
-        surname = scanner.next();
-        boolean response = repo.createUser(name, surname);
 
-        return ( response ? "User was created successfully!" : "User was not created successfully :(");
+
+
+
+
+
+
+    @Override
+    public boolean  createUser(User user) {
+        if (repo.userExists(user)) return false;
+
+        boolean response = repo.createUser(user);
+        return response;
     }
+
+
+
+
+
+
+
+
+
 
     @Override
     public void showAllUsers() {
@@ -34,11 +46,13 @@ public class CarSharingService implements ICarSharingService {
         users.forEach(user -> System.out.println(user));
     }
 
-    public void showUserById() {
+    public User showUserById() {
         System.out.print("Enter id of user: ");
         int id = Integer.parseInt(scanner.next());
         User user = repo.getUserById(id);
         System.out.println((user == null ? "User was not found!" : user.toString()));
+
+        return user;
 
     }
 
@@ -51,7 +65,7 @@ public class CarSharingService implements ICarSharingService {
     public void returnCar() {
     }
 //7
-    public String  addCar() {
+    public void addCar() {
         String carnumber, brand, model;
         System.out.print("Please enter car number: ");
         carnumber = scanner.next();
@@ -60,15 +74,19 @@ public class CarSharingService implements ICarSharingService {
         System.out.print("Please enter model: ");
         model = scanner.next();
         boolean response = repo.addCar(carnumber, brand, model);
-
-        return (response ? "Car was added successfully!" : "Car was not added successfully :(");
+        System.out.println((response ? "Car was added successfully!" : "Car was not added successfully :("));
     }
 
     public void showAllCars() {
-        List<Car> cars = repo.showAllCars();
+        List<Car> cars = repo.getAllCars();
         cars.forEach(car -> System.out.println(car));
     }
 
-    public void getcarByNumber() {
+    public void showCarByNumber(){
+        System.out.print("Enter the car number");
+        String carnumber = scanner.nextLine();
+
+        Car car = repo.getCarByNumber(carnumber);
+        System.out.println(car);
     }
 }

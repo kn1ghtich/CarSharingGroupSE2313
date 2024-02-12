@@ -4,7 +4,6 @@ import org.carsharing.models.Car;
 import org.carsharing.models.User;
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
 import org.carsharing.data.interfaces.IDB;
-
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,18 +19,24 @@ public class CarSharingRepository implements ICarSharingRepository {
 
     //1
     @Override
-    public boolean createUser(String name, String surname) {
+    public boolean createUser(User user) {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO public.users(name, surname) VALUES (?, ?);";
+            String sql = "INSERT INTO public.users(\n" +
+                    " id, name, surname, phonenumber, email, password, money)\n" +
+                    "\tVALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, user.getId());
+            st.setString(2, user.getName());
+            st.setString(3, user.getSurname());
+            st.setString(4, user.getPhonenumber());
+            st.setString(5, user.getEmail());
+            st.setString(6, user.getPassword());
+            st.setInt(7, user.getMoney());
 
-            st.setString(1, name);
-            st.setString(2, surname);
             st.execute();
             return true;
-
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
         } finally {
@@ -43,6 +48,31 @@ public class CarSharingRepository implements ICarSharingRepository {
         }
         return false;
     }
+
+    public boolean userExists(User user){
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM public.users WHERE email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, user.getEmail());
+            ResultSet resultSet = st.executeQuery();
+            if (resultSet.next()){
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+        return false;
+    }
+
+
 
 
     //2
@@ -57,10 +87,8 @@ public class CarSharingRepository implements ICarSharingRepository {
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                User user = new User(rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("surname"));
-                users.add(user);
+//                User user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("surname"));
+//                users.add(user);
             }
 
             return users;
@@ -88,7 +116,7 @@ public class CarSharingRepository implements ICarSharingRepository {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                return new User(rs.getInt("id"), rs.getString("name"), rs.getString("surname"));
+               // return new User(rs.getInt("id"), rs.getString("name"), rs.getString("surname"));
             }
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
@@ -103,7 +131,7 @@ public class CarSharingRepository implements ICarSharingRepository {
     }
 
 
-    //
+    //7
     public boolean addCar(String carnumber, String brand, String model) {
         Connection con = null;
         try {
@@ -127,9 +155,9 @@ public class CarSharingRepository implements ICarSharingRepository {
         }
         return false;
     }
-
+//8
     @Override
-    public List<Car> showAllCars(){
+    public List<Car> getAllCars(){
         Connection con = null;
         try {
             con = db.getConnection();
@@ -146,6 +174,32 @@ public class CarSharingRepository implements ICarSharingRepository {
             }
 
             return cars;
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+        return null;
+    }
+
+//9
+    @Override
+    public Car getCarByNumber(String carnumber){
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM public.cars WHERE carnumber = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, carnumber);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return new Car(rs.getString("carnumber"),
+                        rs.getString("brand"), rs.getString("model"));
+            }
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
         } finally {

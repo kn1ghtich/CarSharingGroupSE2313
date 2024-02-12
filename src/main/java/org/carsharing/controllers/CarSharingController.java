@@ -1,27 +1,30 @@
 package org.carsharing.controllers;
 
+import org.carsharing.dtos.UserDTO;
 import org.carsharing.service.interfaces.ICarSharingService;
 import org.carsharing.models.*;
 import java.util.Scanner;
 
 public class CarSharingController {
-    private ICarSharingService service;
+    private final ICarSharingService service;
     Scanner scanner = new Scanner(System.in);
 
     public CarSharingController(ICarSharingService service) {
         this.service = service;
     }
 
-    public void createUser() {
-        String response = service.createUser();
-        System.out.println(response);
+    public boolean  createUser(User user) {
+        boolean feedback = service.createUser(user);
+        return feedback;
     }
 
     public void showAllUsers() {
         service.showAllUsers();
     }
-    public void showUserById() {
-        service.showUserById();
+    public UserDTO showUserById() {
+        User user = service.showUserById();
+
+        return new UserDTO(user);
     }
 
     public void showPHistoryById() {
@@ -32,19 +35,17 @@ public class CarSharingController {
         String response;
     }
 
-    public void returnCar() {
-        String response;
-    }
+    public void returnCar() {    }
 
     public void addCar() {
-        String response = service.addCar();
-        System.out.println(response);
+        service.addCar();
     }
 
     public void showAllCars() {
         service.showAllCars();
     }
 
-    public void getcarByNumber() {
+    public void showCarByNumber() {
+        service.showCarByNumber();
     }
 }

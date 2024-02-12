@@ -1,17 +1,22 @@
 package org.carsharing.service.interfaces;
 
+import org.carsharing.models.User;
+
 public interface ICarSharingService {
 
 
 
     //String createUser(String name, String surname, String gender);
 
-    String createUser();
+    boolean  createUser(User user);
 
     void showAllUsers();
 
-    void showUserById();
+    User showUserById();
 
-    String addCar();
+    void addCar();
     void showAllCars();
+
+    void showCarByNumber();
+
 }

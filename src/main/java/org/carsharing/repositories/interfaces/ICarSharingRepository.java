@@ -5,13 +5,20 @@ import org.carsharing.models.User;
 import java.util.List;
 
 public interface ICarSharingRepository {
-    boolean createUser(String name, String surname);
+
+    boolean createUser(User user);
+    boolean userExists(User user);
     List<User> getAllUsers();
     User getUserById(int id);
 
     boolean addCar(String carnumber, String brand, String model);
 
-    List<Car> showAllCars();
+    List<Car> getAllCars();
+
+    Car getCarByNumber(String carnumber);
+
+
+
 
     /*
     boolean createUser(User user);
