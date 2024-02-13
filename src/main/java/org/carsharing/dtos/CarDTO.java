@@ -25,7 +25,6 @@ public class CarDTO {
     }
     @Override
     public String toString(){
-        return   id + ". " + carnumber + ": " + brand + " " + model + ", " + (available ? "is avaliable\n" : "is not available\n")
-                + "Price: " +  price;
+        return  "Id: " + id + "\n\t | car number: " +  carnumber + "\n\t | Brand: " + brand + "\n\t | Model: " + model + "\n\t | Price: " +  price;
     }
 }

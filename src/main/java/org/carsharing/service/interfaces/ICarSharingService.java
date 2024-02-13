@@ -18,8 +18,8 @@ public interface ICarSharingService {
     User getUserById(int id);
 
     boolean addCar(Car car);
-    void showAllCars();
+    List<Car> getAllCars();
 
-    void showCarByNumber();
+    Car getCarByNumber(String carnumber);
 
 }

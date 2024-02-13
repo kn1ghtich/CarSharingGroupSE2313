@@ -61,7 +61,6 @@ public class CarSharingService implements ICarSharingService {
     //7
     public boolean addCar(Car car) {
         if( repo.carExists(car)) {
-            System.out.println("Car is already exists! ");
             return false;
         }
 
@@ -69,16 +68,14 @@ public class CarSharingService implements ICarSharingService {
         return response;
     }
 
-    public void showAllCars() {
+    @Override
+    public List<Car> getAllCars() {
         List<Car> cars = repo.getAllCars();
-        cars.forEach(car -> System.out.println(car));
+        return cars;
     }
 
-    public void showCarByNumber() {
-        System.out.print("Enter the car number");
-        String carnumber = scanner.nextLine();
-
+    public Car getCarByNumber(String carnumber) {
         Car car = repo.getCarByNumber(carnumber);
-        System.out.println(car);
+        return car;
     }
 }

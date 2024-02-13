@@ -1,6 +1,7 @@
 package org.carsharing;
 
 import org.carsharing.controllers.CarSharingController;
+import org.carsharing.dtos.CarDTO;
 import org.carsharing.dtos.UserDTO;
 import org.carsharing.models.Car;
 import org.carsharing.models.User;
@@ -25,7 +26,7 @@ public class MyApplication {
 
             try {
                 System.out.print("Select option: ");
-                int option = scanner.nextInt();
+                int option = Integer.parseInt(scanner.next());
                 System.out.println();
                 switch (option) {
                     case 1:
@@ -80,15 +81,19 @@ public class MyApplication {
                         int price = Integer.parseInt(scanner.next());
                         Car car7 = new Car(0 , 0,  carnumber7, brand7, model7, true, true, price);
                         boolean feedback7 = controller.addCar(car7);
-                        System.out.println(feedback7 ? carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!" : "C141 :(");
+                        System.out.println(feedback7 ? carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!" : "C141 :(\nCar is already exists:(");
                         break;
                     case 8:
                         //"8. Get All Cars"
-                        controller.showAllCars();
+                        List<CarDTO> cars = controller.getAllCars();
+                        cars.forEach(carDTO -> System.out.println(carDTO));
                         break;
                     case 9:
                       //"9. Get car by car number"
-                        controller.showCarByNumber();
+                        System.out.print("Enter car number: ");
+                        String carnumber = scanner.next();
+                        CarDTO carDTO = controller.getCarByNumber(carnumber);
+                        System.out.println( (carDTO != null) ? "Car: " + carDTO : "No car was found\nC141:(");
                         break;
                     case 0:
                         //"0. Exit"

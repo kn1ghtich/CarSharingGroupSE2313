@@ -16,8 +16,6 @@ public class CarSharingRepository implements ICarSharingRepository {
         this.db = db;
     }
 
-
-
     //1
     @Override
     public boolean createUser(User user) {
@@ -72,8 +70,6 @@ public class CarSharingRepository implements ICarSharingRepository {
         }
         return false;
     }
-
-
 
 
     //2
@@ -148,6 +144,16 @@ public class CarSharingRepository implements ICarSharingRepository {
     }
 
 
+
+
+
+
+
+
+
+
+
+
     //7
     public boolean addCar(Car car) {
         Connection con = null;
@@ -201,47 +207,31 @@ public class CarSharingRepository implements ICarSharingRepository {
         }
         return false;
     }
-    /*
-    public boolean userExists(User user){
-        Connection con = null;
-        try {
-            con = db.getConnection();
-            String sql = "SELECT * FROM public.users WHERE email = ?";
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1, user.getEmail());
-            ResultSet resultSet = st.executeQuery();
-            if (resultSet.next()){
-                return true;
-            }
-        } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
-        } finally {
-            try {
-                if (con != null) con.close();
-            } catch (SQLException e) {
-                System.out.println("sql error: " + e.getMessage());
-            }
-        }
-        return false;
-    }
-     */
+
+
 //8
     @Override
     public List<Car> getAllCars(){
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT * FROM public.cars;";
+            String sql = "SELECT * FROM public.cars WHERE state = true;";
             Statement st = con.createStatement();
             java.util.List<Car> cars = new LinkedList<>();
             ResultSet rs = st.executeQuery(sql);
 
-//            while (rs.next()) {
-//                Car car = new Car(rs.getString("carnumber"),
-//                        rs.getString("brand"),
-//                        rs.getString("model"));
-//                cars.add(car);
-//            }
+            while (rs.next()) {
+                Car car = new Car(rs.getInt("id"),
+                        rs.getInt("userid"),
+                        rs.getString("carnumber"),
+                        rs.getString("brand"),
+                        rs.getString("model"),
+                        rs.getBoolean("availability"),
+                        rs.getBoolean("state"),
+                        rs.getInt("price")
+                );
+                cars.add(car);
+            }
 
             return cars;
         } catch (SQLException e) {
@@ -256,6 +246,8 @@ public class CarSharingRepository implements ICarSharingRepository {
         return null;
     }
 
+
+
 //9
     @Override
     public Car getCarByNumber(String carnumber){
@@ -266,10 +258,16 @@ public class CarSharingRepository implements ICarSharingRepository {
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, carnumber);
             ResultSet rs = st.executeQuery();
-//            if (rs.next()) {
-//                return new Car(rs.getString("carnumber"),
-//                        rs.getString("brand"), rs.getString("model"));
-//            }
+            if (rs.next()) {
+                return new Car(rs.getInt("id"),
+                        rs.getInt("userid"),
+                        rs.getString("carnumber"),
+                        rs.getString("brand"),
+                        rs.getString("model"),
+                        rs.getBoolean("availability"),
+                        rs.getBoolean("state"),
+                        rs.getInt("price"));
+            }
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
         } finally {
@@ -283,35 +281,37 @@ public class CarSharingRepository implements ICarSharingRepository {
     }
     /*
 @Override
-    public User getUser(int id) {
+    public User getUserById(int id) {
         Connection con = null;
-
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,surname,gender FROM users WHERE id=?";
+            String sql = "SELECT * FROM public.users WHERE id = ?";
             PreparedStatement st = con.prepareStatement(sql);
-
             st.setInt(1, id);
-
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                return new User(rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("surname"),
-                        rs.getBoolean("gender"));
+                //User (int id, String name, String surname, String phonenumber, String  email, String  password, int money)
+               return new User(rs.getInt("id") , rs.getString("name"),
+                       rs.getString("surname"),
+                       rs.getString("phonenumber"),
+                       rs.getString("email"),
+                       rs.getString("password"),
+                       rs.getInt("money")
+               );
             }
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
+        } catch (NullPointerException e) {
+
         } finally {
             try {
-                if (con != null)
-                    con.close();
+                if (con != null) con.close();
             } catch (SQLException e) {
                 System.out.println("sql error: " + e.getMessage());
             }
         }
-
         return null;
     }
+
      */
 }
