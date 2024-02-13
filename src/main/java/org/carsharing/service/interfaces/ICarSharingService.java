@@ -1,6 +1,6 @@
 package org.carsharing.service.interfaces;
 
-import org.carsharing.models.User;
+import org.carsharing.models.*;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ public interface ICarSharingService {
 
     User getUserById(int id);
 
-    void addCar();
+    boolean addCar(Car car);
     void showAllCars();
 
     void showCarByNumber();

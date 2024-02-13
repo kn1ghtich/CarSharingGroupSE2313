@@ -32,12 +32,6 @@ public class CarSharingController {
     }
 
 
-
-
-
-
-
-
     public UserDTO getUserById(int id) {
         User user = service.getUserById(id);
         if (user == null){
@@ -63,10 +57,18 @@ public class CarSharingController {
 
     public void returnCar() {    }
 
-    public void addCar() {
-        service.addCar();
+    public boolean addCar(Car car) {
+        boolean feedback = service.addCar(car);
+        return feedback;
     }
 
+    /*
+    public boolean  createUser(User user) {
+        boolean feedback = service.createUser(user);
+        return feedback;
+    }
+
+     */
     public void showAllCars() {
         service.showAllCars();
     }

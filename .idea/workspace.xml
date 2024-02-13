@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30bedc9e-1331-4e8f-9d33-2358693c18dc" name="Changes" comment="Car Sharing">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/dtos/CarDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/controllers/CarSharingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/controllers/CarSharingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/dtos/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/dtos/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/models/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/CarSharingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/CarSharingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/interfaces/ICarSharingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/interfaces/ICarSharingRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/service/CarSharingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/service/CarSharingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/service/interfaces/ICarSharingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/service/interfaces/ICarSharingService.java" afterDir="false" />
     </list>
@@ -100,7 +101,7 @@
       <workItem from="1707680097850" duration="117000" />
       <workItem from="1707717369614" duration="3788000" />
       <workItem from="1707749172364" duration="12607000" />
-      <workItem from="1707764878064" duration="1653000" />
+      <workItem from="1707764878064" duration="6220000" />
     </task>
     <task id="LOCAL-00001" summary="Car Sharing">
       <option name="closed" value="true" />
@@ -198,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707760620871</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Car Sharing">
+      <option name="closed" value="true" />
+      <created>1707790191381</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707790191381</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

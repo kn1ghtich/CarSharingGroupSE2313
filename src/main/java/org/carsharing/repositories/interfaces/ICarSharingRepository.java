@@ -8,10 +8,15 @@ public interface ICarSharingRepository {
 
     boolean createUser(User user);
     boolean userExists(User user);
+
+
     List<User> getAllUsers();
     User getUserById(int id);
 
-    boolean addCar(String carnumber, String brand, String model);
+
+
+    boolean addCar(Car car);
+    boolean carExists(Car car);
 
     List<Car> getAllCars();
 

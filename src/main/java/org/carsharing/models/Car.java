@@ -10,14 +10,18 @@ import lombok.Setter;
 @Getter @Setter
 
 public class Car {
-    String carnumber, brand, model;
-    public Car (String carnumber, String brand, String model){
-        this.carnumber = carnumber;
-        this.brand = brand;
-        this.model = model;
-    }
-    @Override
-    public String toString(){
-        return carnumber + " " + brand + " " + model;
+    private String  carnumber, brand, model;
+    private int id, userid, price;
+    private boolean available, state;
+
+    public Car (int id, int userid, String carnumber, String brand, String model, boolean available, boolean state, int price){
+        setId(id);
+        setUserid(userid);
+        setCarnumber(carnumber);
+        setBrand(brand);
+        setModel(model);
+        setAvailable(available);
+        setState(state);
+        setPrice(price);
     }
 }

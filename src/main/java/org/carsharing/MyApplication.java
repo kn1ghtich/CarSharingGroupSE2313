@@ -2,6 +2,7 @@ package org.carsharing;
 
 import org.carsharing.controllers.CarSharingController;
 import org.carsharing.dtos.UserDTO;
+import org.carsharing.models.Car;
 import org.carsharing.models.User;
 
 import java.util.InputMismatchException;
@@ -68,7 +69,17 @@ public class MyApplication {
                         break;
                     case 7:
                         //"7. Add Car"
-                        controller.addCar();
+                        System.out.print("Enter carnumber: ");
+                        String carnumber7 = scanner.next();
+                        System.out.print("Enter brand: ");
+                        String brand7 = scanner.next();
+                        System.out.print("Enter model: ");
+                        String model7 = scanner.next();
+                        System.out.print("Enter cars price: ");
+                        int price = Integer.parseInt(scanner.next());
+                        Car car7 = new Car(0 , 0,  carnumber7, brand7, model7, true, true, price);
+                        boolean feedback7 = controller.addCar(car7);
+                        System.out.println(feedback7 ? carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!" : "C141 :(");
                         break;
                     case 8:
                         //"8. Get All Cars"

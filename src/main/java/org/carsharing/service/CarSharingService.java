@@ -58,16 +58,14 @@ public class CarSharingService implements ICarSharingService {
     }
 
     //7
-    public void addCar() {
-        String carnumber, brand, model;
-        System.out.print("Please enter car number: ");
-        carnumber = scanner.next();
-        System.out.print("Please enter brand: ");
-        brand = scanner.next();
-        System.out.print("Please enter model: ");
-        model = scanner.next();
-        boolean response = repo.addCar(carnumber, brand, model);
-        System.out.println((response ? "Car was added successfully!" : "Car was not added successfully :("));
+    public boolean addCar(Car car) {
+        if( repo.carExists(car)) {
+            System.out.println("Car is already exists! ");
+            return false;
+        }
+
+        boolean response = repo.addCar(car);
+        return response;
     }
 
     public void showAllCars() {
