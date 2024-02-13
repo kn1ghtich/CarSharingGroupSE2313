@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30bedc9e-1331-4e8f-9d33-2358693c18dc" name="Changes" comment="Car Sharing" />
+    <list default="true" id="30bedc9e-1331-4e8f-9d33-2358693c18dc" name="Changes" comment="Car Sharing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/controllers/CarSharingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/controllers/CarSharingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/dtos/CarDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/dtos/CarDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/CarSharingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/repositories/CarSharingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/service/CarSharingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/service/CarSharingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/carsharing/service/interfaces/ICarSharingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/carsharing/service/interfaces/ICarSharingService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +99,7 @@
       <workItem from="1707680097850" duration="117000" />
       <workItem from="1707717369614" duration="3788000" />
       <workItem from="1707749172364" duration="12607000" />
-      <workItem from="1707764878064" duration="6692000" />
+      <workItem from="1707764878064" duration="10620000" />
     </task>
     <task id="LOCAL-00001" summary="Car Sharing">
       <option name="closed" value="true" />
@@ -205,7 +213,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707795010412</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Car Sharing">
+      <option name="closed" value="true" />
+      <created>1707795626300</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707795626300</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
