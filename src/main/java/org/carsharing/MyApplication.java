@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class MyApplication {
     private final CarSharingController controller;
     private final Scanner scanner = new Scanner(System.in);
+
     public MyApplication(CarSharingController controller) {
         this.controller = controller;
     }
@@ -57,7 +58,7 @@ public class MyApplication {
                         System.out.print("Enter id of User: ");
                         int id3 = Integer.parseInt(scanner.next());
                         UserDTO userDTO = controller.getUserById(id3);
-                        System.out.println( (userDTO != null) ? "The user by id = " + userDTO : "C141 :(" );
+                        System.out.println((userDTO != null) ? "The user by id = " + userDTO : "C141 :(");
                         break;
                     case 4:
                         controller.showPHistoryById();
@@ -79,9 +80,15 @@ public class MyApplication {
                         String model7 = scanner.next();
                         System.out.print("Enter cars price: ");
                         int price = Integer.parseInt(scanner.next());
-                        Car car7 = new Car(0 , 0,  carnumber7, brand7, model7, true, true, price);
+                        Car car7 = new Car(0, 0, carnumber7, brand7, model7, true, true, price);
                         boolean feedback7 = controller.addCar(car7);
-                        System.out.println(feedback7 ? carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!" : "C141 :(\nCar is already exists:(");
+                        if (feedback7) {
+                            System.out.println(carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!");
+                        } else {
+                            System.out.println("C141 :(\nCar is already exists:(");
+                        }
+//                        System.out.println(feedback7 ? carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!" :
+//                                "C141 :(\nCar is already exists:(");   //is this that this is not bad
                         break;
                     case 8:
                         //"8. Get All Cars"
@@ -89,11 +96,11 @@ public class MyApplication {
                         cars.forEach(carDTO -> System.out.println(carDTO));
                         break;
                     case 9:
-                      //"9. Get car by car number"
+                        //"9. Get car by car number"
                         System.out.print("Enter car number: ");
                         String carnumber = scanner.next();
                         CarDTO carDTO = controller.getCarByNumber(carnumber);
-                        System.out.println( (carDTO != null) ? "Car: " + carDTO : "No car was found\nC141:(");
+                        System.out.println((carDTO != null) ? "Car: " + carDTO : "No car was found\nC141:(");
                         break;
                     case 0:
                         //"0. Exit"
@@ -111,7 +118,8 @@ public class MyApplication {
             System.out.println("*************************\n\n");
         }
     }
-    private static void showMenu(){
+
+    private static void showMenu() {
         System.out.println("1. Create user");
         System.out.println("2. Show all users");
         System.out.println("3. Show user by id");

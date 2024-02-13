@@ -6,7 +6,8 @@ import lombok.Setter;
 import org.carsharing.models.User;
 
 @AllArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class UserDTO {
     private int id;
     private String name = "", surname = "", phonenumber = "", email;
@@ -21,7 +22,11 @@ public class UserDTO {
     }
 
     @Override
-    public String toString(){
-        return "Id: " + id + "\n\t | Name: " + name + "\n\t | Surname: " + surname + "\n\t | Phone number: " + phonenumber + "\n\t | Email is: " + email;
+    public String toString() {
+        return "Id: " + id +
+                "\n\t | Name: " + name +
+                "\n\t | Surname: " + surname +
+                "\n\t | Phone number: " + phonenumber +
+                "\n\t | Email is: " + email;
     }
 }

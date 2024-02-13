@@ -6,11 +6,10 @@ import org.carsharing.service.interfaces.ICarSharingService;
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
 
 import java.util.List;
-import java.util.Scanner;
+
 
 public class CarSharingService implements ICarSharingService {
     ICarSharingRepository repo;
-    Scanner scanner = new Scanner(System.in);
 
     public CarSharingService(ICarSharingRepository repo) {
         this.repo = repo;
