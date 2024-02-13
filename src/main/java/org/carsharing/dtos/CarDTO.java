@@ -11,7 +11,7 @@ import org.carsharing.models.Car;
 @AllArgsConstructor
 @Getter @Setter
 public class CarDTO {
-    private String  carnumber, brand, model;
+    private String  carnumber, brand = "NUll", model = "NUll";
     private int id, price;
     private boolean available;
 

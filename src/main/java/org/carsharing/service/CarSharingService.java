@@ -1,6 +1,7 @@
 package org.carsharing.service;
 
 import org.carsharing.models.Car;
+import org.carsharing.models.Datehist;
 import org.carsharing.models.User;
 import org.carsharing.service.interfaces.ICarSharingService;
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
@@ -44,12 +45,19 @@ public class CarSharingService implements ICarSharingService {
         return user;
     }
 
-
-
-
-
-    public void showPHistoryById() {
+    @Override
+    public User getUserByEmail(String email) {
+        User user = repo.getUserByEmail(email);
+        return user;
     }
+
+
+
+    public List<Datehist> getPurchaseHistory(int id){
+        List<Datehist> dh = repo.getPurchaseHistory(id);
+        return dh;
+    }
+
 
     public void rentCar() {
     }

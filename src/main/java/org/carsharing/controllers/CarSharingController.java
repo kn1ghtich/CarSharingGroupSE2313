@@ -43,14 +43,21 @@ public class CarSharingController {
     }
 
 
+    public UserDTO getUserByEmail(String email) {
+        User user = service.getUserByEmail(email);
+        if (user == null){
+            return null;
+        }
+        return new UserDTO(user);
+    }
 
 
 
 
 
-
-    public void showPHistoryById() {
-
+    public List<Datehist>  getPHistoryById(int id) {
+        List<Datehist> dh = service.getPurchaseHistory(id);
+        return dh;
     }
 
     public void rentCar() {

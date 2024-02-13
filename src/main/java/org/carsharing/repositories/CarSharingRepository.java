@@ -1,10 +1,12 @@
 package org.carsharing.repositories;
 
 import org.carsharing.models.Car;
+import org.carsharing.models.Datehist;
 import org.carsharing.models.User;
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
 import org.carsharing.data.interfaces.IDB;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -23,16 +25,15 @@ public class CarSharingRepository implements ICarSharingRepository {
         try {
             con = db.getConnection();
             String sql = "INSERT INTO public.users(\n" +
-                    " id, name, surname, phonenumber, email, password, money)\n" +
-                    "\tVALUES (?, ?, ?, ?, ?, ?, ?);";
+                    " name, surname, phonenumber, email, password, money)\n" +
+                    "\tVALUES ( ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
-            st.setInt(1, user.getId());
-            st.setString(2, user.getName());
-            st.setString(3, user.getSurname());
-            st.setString(4, user.getPhonenumber());
-            st.setString(5, user.getEmail());
-            st.setString(6, user.getPassword());
-            st.setInt(7, user.getMoney());
+            st.setString(1, user.getName());
+            st.setString(2, user.getSurname());
+            st.setString(3, user.getPhonenumber());
+            st.setString(4, user.getEmail());
+            st.setString(5, user.getPassword());
+            st.setInt(6, user.getMoney());
 
             st.execute();
             return true;
@@ -143,6 +144,73 @@ public class CarSharingRepository implements ICarSharingRepository {
         return null;
     }
 
+
+    @Override
+    public User getUserByEmail(String email) {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT * FROM public.users WHERE email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                //User (int id, String name, String surname, String phonenumber, String  email, String  password, int money)
+                return new User(rs.getInt("id") , rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getString("phonenumber"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getInt("money")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } catch (NullPointerException e) {
+
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Datehist> getPurchaseHistory(int id){
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "SELECT fromdate, userid, carnumber, todate\n" +
+                    "\tFROM public.purchasehistory WHERE userid = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            List<Datehist> phist = new ArrayList<>();
+            while (rs.next()) {
+                Datehist dh = new Datehist(
+                        rs.getDate("fromdate"),
+                        rs.getInt("userid") ,
+                        rs.getString("carnumber"),
+                        rs.getDate("todate")
+                        );
+                phist.add(dh);
+            }
+
+            return phist;
+        } catch (SQLException e) {
+            System.out.println("sql error: " + e.getMessage());
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                System.out.println("sql error: " + e.getMessage());
+            }
+        }
+        return null;
+    }
 
 
 

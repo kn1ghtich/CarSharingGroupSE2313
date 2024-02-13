@@ -1,6 +1,7 @@
 package org.carsharing.repositories.interfaces;
 
 import org.carsharing.models.Car;
+import org.carsharing.models.Datehist;
 import org.carsharing.models.User;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface ICarSharingRepository {
 
     List<User> getAllUsers();
     User getUserById(int id);
-
+    User getUserByEmail(String email);
 
 
 
@@ -22,6 +23,8 @@ public interface ICarSharingRepository {
     List<Car> getAllCars();
 
     Car getCarByNumber(String carnumber);
+
+    List<Datehist> getPurchaseHistory(int id);
 
 
 

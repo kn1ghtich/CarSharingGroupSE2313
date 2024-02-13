@@ -16,10 +16,12 @@ public interface ICarSharingService {
 
 
     User getUserById(int id);
+    User getUserByEmail(String email);
 
     boolean addCar(Car car);
     List<Car> getAllCars();
 
     Car getCarByNumber(String carnumber);
 
+    List<Datehist> getPurchaseHistory(int id);
 }
