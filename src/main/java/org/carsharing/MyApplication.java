@@ -28,7 +28,8 @@ public class MyApplication {
 
             try {
                 System.out.print("Select option: ");
-                int option = Integer.parseInt(scanner.next());
+                String op = scanner.nextLine();
+                int option = Integer.parseInt(op);
                 System.out.println();
                 switch (option) {
                     case 1:
@@ -85,13 +86,16 @@ public class MyApplication {
                     case 8:
                         //"7. Add Car"
                         System.out.print("Enter carnumber: ");
-                        String carnumber7 = scanner.next();
+                        String carnumber7 = scanner.nextLine();
+
                         System.out.print("Enter brand: ");
-                        String brand7 = scanner.next();
+                        String brand7 = scanner.nextLine();
+
                         System.out.print("Enter model: ");
-                        String model7 = scanner.next();
+                        String model7 = scanner.nextLine();
                         System.out.print("Enter cars price: ");
-                        int price = Integer.parseInt(scanner.next());
+                        String pr = scanner.nextLine();
+                        int price = Integer.parseInt(pr);
                         Car car7 = new Car(0, 0, carnumber7, brand7, model7, true, true, price);
                         boolean feedback7 = controller.addCar(car7);
 

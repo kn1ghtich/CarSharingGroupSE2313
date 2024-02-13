@@ -9,7 +9,7 @@ import org.carsharing.models.User;
 @Getter
 @Setter
 public class UserDTO {
-    private int id;
+    private int id, money;
     private String name = "", surname = "", phonenumber = "", email;
 
 
@@ -19,6 +19,7 @@ public class UserDTO {
         surname = user.getSurname();
         phonenumber = user.getPhonenumber();
         email = user.getEmail();
+        money = user.getMoney();
     }
 
     @Override
@@ -27,6 +28,7 @@ public class UserDTO {
                 "\n\t | Name: " + name +
                 "\n\t | Surname: " + surname +
                 "\n\t | Phone number: " + phonenumber +
-                "\n\t | Email is: " + email;
+                "\n\t | Email is: " + email +
+                "\n\t : Money: "  + money;
     }
 }
