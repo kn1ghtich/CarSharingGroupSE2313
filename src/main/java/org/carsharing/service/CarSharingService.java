@@ -16,15 +16,8 @@ public class CarSharingService implements ICarSharingService {
         this.repo = repo;
     }
 
-
-
-
-
-
-
-
     @Override
-    public boolean  createUser(User user) {
+    public boolean createUser(User user) {
         if (repo.userExists(user)) return false;
 
         boolean response = repo.createUser(user);
@@ -32,7 +25,12 @@ public class CarSharingService implements ICarSharingService {
     }
 
 
+    @Override
+    public List<User> getAllUsers() {
+        List<User> users = repo.getAllUsers();
 
+        return users;
+    }
 
 
 
@@ -41,20 +39,14 @@ public class CarSharingService implements ICarSharingService {
 
 
     @Override
-    public void showAllUsers() {
-        List<User> users = repo.getAllUsers();
-        users.forEach(user -> System.out.println(user));
-    }
-
-    public User showUserById() {
-        System.out.print("Enter id of user: ");
-        int id = Integer.parseInt(scanner.next());
+    public User getUserById(int id) {
         User user = repo.getUserById(id);
-        System.out.println((user == null ? "User was not found!" : user.toString()));
-
         return user;
-
     }
+
+
+
+
 
     public void showPHistoryById() {
     }
@@ -64,7 +56,8 @@ public class CarSharingService implements ICarSharingService {
 
     public void returnCar() {
     }
-//7
+
+    //7
     public void addCar() {
         String carnumber, brand, model;
         System.out.print("Please enter car number: ");
@@ -82,7 +75,7 @@ public class CarSharingService implements ICarSharingService {
         cars.forEach(car -> System.out.println(car));
     }
 
-    public void showCarByNumber(){
+    public void showCarByNumber() {
         System.out.print("Enter the car number");
         String carnumber = scanner.nextLine();
 

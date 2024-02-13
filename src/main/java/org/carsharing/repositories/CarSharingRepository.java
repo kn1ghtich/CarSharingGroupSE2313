@@ -77,18 +77,25 @@ public class CarSharingRepository implements ICarSharingRepository {
 
     //2
     @Override
-    public java.util.List<User> getAllUsers() {
+    public List<User> getAllUsers() {
         Connection con = null;
         try {
             con = db.getConnection();
             String sql = "SELECT * FROM public.users;";
             Statement st = con.createStatement();
-            java.util.List<User> users = new LinkedList<>();
+            List<User> users = new LinkedList<>();
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-//                User user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("surname"));
-//                users.add(user);
+                User user = new User(rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getString("phonenumber"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getInt("money")
+                );
+                users.add(user);
             }
 
             return users;
@@ -116,10 +123,19 @@ public class CarSharingRepository implements ICarSharingRepository {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-               // return new User(rs.getInt("id"), rs.getString("name"), rs.getString("surname"));
+                //User (int id, String name, String surname, String phonenumber, String  email, String  password, int money)
+               return new User(rs.getInt("id") , rs.getString("name"),
+                       rs.getString("surname"),
+                       rs.getString("phonenumber"),
+                       rs.getString("email"),
+                       rs.getString("password"),
+                       rs.getInt("money")
+               );
             }
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
+        } catch (NullPointerException e) {
+
         } finally {
             try {
                 if (con != null) con.close();

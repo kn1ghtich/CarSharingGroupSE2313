@@ -2,6 +2,8 @@ package org.carsharing.service.interfaces;
 
 import org.carsharing.models.User;
 
+import java.util.List;
+
 public interface ICarSharingService {
 
 
@@ -10,9 +12,9 @@ public interface ICarSharingService {
 
     boolean  createUser(User user);
 
-    void showAllUsers();
+    List<User> getAllUsers();
 
-    User showUserById();
+    User getUserById(int id);
 
     void addCar();
     void showAllCars();

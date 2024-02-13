@@ -3,6 +3,9 @@ package org.carsharing.controllers;
 import org.carsharing.dtos.UserDTO;
 import org.carsharing.service.interfaces.ICarSharingService;
 import org.carsharing.models.*;
+
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarSharingController {
@@ -18,14 +21,37 @@ public class CarSharingController {
         return feedback;
     }
 
-    public void showAllUsers() {
-        service.showAllUsers();
-    }
-    public UserDTO showUserById() {
-        User user = service.showUserById();
+    public List<UserDTO> getAllUsers() {
+        List<UserDTO> userDTOS = new LinkedList<>();
+        List<User> users = service.getAllUsers();
 
+        for (User user : users){
+            userDTOS.add(new UserDTO(user));
+        }
+        return userDTOS;
+    }
+
+
+
+
+
+
+
+
+    public UserDTO getUserById(int id) {
+        User user = service.getUserById(id);
+        if (user == null){
+            return null;
+        }
         return new UserDTO(user);
     }
+
+
+
+
+
+
+
 
     public void showPHistoryById() {
 

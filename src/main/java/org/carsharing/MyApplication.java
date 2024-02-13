@@ -5,6 +5,7 @@ import org.carsharing.dtos.UserDTO;
 import org.carsharing.models.User;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MyApplication {
@@ -46,11 +47,14 @@ public class MyApplication {
                         System.out.println(feedback ? name + " " + surname + " was created successfully!" : "C141 :(");
                         break;
                     case 2:
-                        controller.showAllUsers();
+                        List<UserDTO> users = controller.getAllUsers();
+                        users.forEach(userDTO -> System.out.println(userDTO));
                         break;
                     case 3:
-                        UserDTO user3 = controller.showUserById();
-                        System.out.println(user3);
+                        System.out.print("Enter id of User: ");
+                        int id3 = Integer.parseInt(scanner.next());
+                        UserDTO userDTO = controller.getUserById(id3);
+                        System.out.println( (userDTO != null) ? "The user by id = " + userDTO : "C141 :(" );
                         break;
                     case 4:
                         controller.showPHistoryById();
