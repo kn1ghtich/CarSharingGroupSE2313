@@ -14,6 +14,7 @@ public interface ICarSharingService {
 
     List<User> getAllUsers();
 
+
     User getUserById(int id);
 
     boolean addCar(Car car);

@@ -11,6 +11,7 @@ public class UserDTO {
     private int id;
     private String name = "", surname = "", phonenumber = "";
 
+
     public UserDTO(User user) {
         id = user.getId();
         name = user.getName();

@@ -45,6 +45,7 @@ public class MyApplication {
                         int money = Integer.parseInt(scanner.next());
                         User user1 = new User(id, name, surname, phonenumber, email, password, money);
                         boolean feedback = controller.createUser(user1);
+
                         System.out.println(feedback ? name + " " + surname + " was created successfully!" : "C141 :(");
                         break;
                     case 2:

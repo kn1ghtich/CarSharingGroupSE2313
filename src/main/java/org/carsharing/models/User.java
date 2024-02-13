@@ -15,6 +15,7 @@ public class User {
     private int money;
 
     public User (int id, String name, String surname, String phonenumber, String  email, String  password, int money){
+
         setId(id);
         setName(name);
         setSurname(surname);
