@@ -25,12 +25,4 @@ public interface ICarSharingRepository {
 
     boolean returnCar(Rent rent);
 
-
-
-
-    /*
-    boolean createUser(User user);
-    User getUser(int id);
-    List<User> getAllUsers();
-     */
 }

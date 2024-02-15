@@ -11,7 +11,6 @@ import java.util.Scanner;
 
 public class CarSharingController {
     private final ICarSharingService service;
-    Scanner scanner = new Scanner(System.in);
 
     public CarSharingController(ICarSharingService service) {
         this.service = service;

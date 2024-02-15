@@ -138,8 +138,7 @@ public class MyApplication {
                         } else {
                             System.out.println("C141 :(\nCar is already exists:(");
                         }
-//                        System.out.println(feedback7 ? carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!" :
-//                                "C141 :(\nCar is already exists:(");   //is this that this is not bad
+
                         break;
                     case 9:
                         //"8. Get All Cars"
@@ -188,10 +187,5 @@ public class MyApplication {
         System.out.println("9. Show All Cars");
         System.out.println("10. Show car by car number");
         System.out.println("0. Exit");
-        /*
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(dtf.format(now));
-         */
     }
 }
