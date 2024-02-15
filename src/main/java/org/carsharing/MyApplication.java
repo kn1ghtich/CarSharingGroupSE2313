@@ -23,6 +23,7 @@ public class MyApplication {
     }
 
 
+
     public void start() {
         boolean exit = false;
         System.out.println("Welcome to Car Sharing BangbangTen from group (Bauyrzhan, Azamat, Sabina (BTS)");
@@ -55,7 +56,7 @@ public class MyApplication {
                         break;
                     case 2:
                         List<UserDTO> users = controller.getAllUsers();
-                        users.forEach(userDTO -> System.out.println(userDTO));
+                        users.forEach(System.out::println);
                         break;
                     case 3:
                         System.out.print("Enter id of User: ");
@@ -65,17 +66,17 @@ public class MyApplication {
                         break;
                     case 5:
                         //"4. Show purchase history of user"
-                        String result = "";
+                        StringBuilder result = new StringBuilder();
                         System.out.print("Enter id of user: ");
                         int id4 = Integer.parseInt(scanner.nextLine());
                         List<Datehist> dh = controller.getPHistoryById(id4);
                         UserDTO userDTO4 = controller.getUserById(id4);
                         if (userDTO4 != null) {
-                            result += "The purchase history of " + userDTO4.getName() + " " + userDTO4.getSurname() + "\n";
+                            result.append("The purchase history of ").append(userDTO4.getName()).append(" ").append(userDTO4.getSurname()).append("\n");
                             for (Datehist datehist : dh) {
                                 CarDTO carDTO4 = controller.getCarByNumber(datehist.getCarnumber());
                                 datehist.setCarDTO(carDTO4);
-                                result += "\t" + datehist.toString();
+                                result.append("\t").append(datehist.toString());
                             }
                         } else {
                             System.out.println("Purchase History is empty :(");
@@ -91,7 +92,7 @@ public class MyApplication {
                         System.out.print("Enter your password: ");
                         String password6 = scanner.nextLine();
                         List<CarDTO> cars6 = controller.getAllCars();
-                        cars6.forEach(carDTO -> System.out.println(carDTO));
+                        cars6.forEach(System.out::println);
                         System.out.print("Enter car number you want to rent: ");
                         String carnumber6 = scanner.nextLine();
                         System.out.print("Enter from date (2005-05-27): ");
@@ -143,7 +144,7 @@ public class MyApplication {
                     case 9:
                         //"8. Get All Cars"
                         List<CarDTO> cars = controller.getAllCars();
-                        cars.forEach(carDTO -> System.out.println(carDTO));
+                        cars.forEach(System.out::println);
                         break;
                     case 10:
                         //"9. Get car by car number"
