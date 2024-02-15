@@ -26,4 +26,6 @@ public interface ICarSharingService {
     List<Datehist> getPurchaseHistory(int id);
 
     boolean rentCar(Rent rent);
+
+    boolean returnCar(Rent rent);
 }

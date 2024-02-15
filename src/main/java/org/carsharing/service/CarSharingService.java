@@ -78,7 +78,9 @@ public class CarSharingService implements ICarSharingService {
         return responce;
     }
 
-    public void returnCar() {
+    public boolean returnCar(Rent rent) {
+        boolean responce = repo.returnCar(rent);
+        return responce;
     }
 
     //7

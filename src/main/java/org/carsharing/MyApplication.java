@@ -104,13 +104,23 @@ public class MyApplication {
                         System.out.println(response ?  "You rented car successfully!": "C141 :(");
                         break;
                     case 7:
-                        //"6. Return car"
-                        controller.returnCar();
+                        System.out.print("Enter your id: ");
+                        int id7 = Integer.parseInt(scanner.nextLine());
+                        System.out.print("Enter your email: ");
+                        String email7 = scanner.nextLine();
+                        System.out.print("Enter your password: ");
+                        String password7 = scanner.nextLine();
+                        System.out.print("Enter car that you rented: ");
+                        String carnumber7 = scanner.nextLine();
+                        Rent rent7 = new Rent(id7, email7, password7, carnumber7, "","");
+
+                        boolean response7 = controller.returnCar(rent7);
+                        System.out.println(response7 ?  "You returned car successfully!": "You did not return car! C141 :(");
                         break;
                     case 8:
                         //"7. Add Car"
                         System.out.print("Enter carnumber: ");
-                        String carnumber7 = scanner.nextLine();
+                        String carnumber8 = scanner.nextLine();
 
                         System.out.print("Enter brand: ");
                         String brand7 = scanner.nextLine();
@@ -120,11 +130,11 @@ public class MyApplication {
                         System.out.print("Enter cars price: ");
                         String pr = scanner.nextLine();
                         int price = Integer.parseInt(pr);
-                        Car car7 = new Car(0, 0, carnumber7, brand7, model7, true, true, price);
+                        Car car7 = new Car(0, 0, carnumber8, brand7, model7, true, true, price);
                         boolean feedback7 = controller.addCar(car7);
 
                         if (feedback7) {
-                            System.out.println(carnumber7 + ": " + brand7 + " " + model7 + " was created successfully!");
+                            System.out.println(carnumber8 + ": " + brand7 + " " + model7 + " was created successfully!");
                         } else {
                             System.out.println("C141 :(\nCar is already exists:(");
                         }

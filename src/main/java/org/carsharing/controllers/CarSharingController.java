@@ -67,7 +67,10 @@ public class CarSharingController {
         return respone;
     }
 
-    public void returnCar() {    }
+    public boolean returnCar(Rent rent) {
+        boolean respone = service.returnCar(rent);
+        return respone;
+    }
 
     public boolean addCar(Car car) {
         boolean feedback = service.addCar(car);

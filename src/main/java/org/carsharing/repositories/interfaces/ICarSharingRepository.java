@@ -23,6 +23,8 @@ public interface ICarSharingRepository {
 
     boolean rentCar(Rent rent);
 
+    boolean returnCar(Rent rent);
+
 
 
 
