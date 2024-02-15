@@ -284,27 +284,6 @@ public class CarSharingRepository implements ICarSharingRepository {
             PreparedStatement st3 = con.prepareStatement(sql3);
             st3.setInt(1, rent.getId());
             st3.execute();
-
-
-//            String sql2 = "INSERT INTO public.purchasehistory(\n" +
-//                    "\tfromdate, userid, carnumber, todate)\n" +
-//                    "\tVALUES (?, ?, ?, ?);";
-
-//            PreparedStatement st2 = con.prepareStatement(sql2);
-//
-//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-//            java.util.Date  utildate1 = format.parse(rent.getFromdate());
-//            java.sql.Date sqlFromDate = new java.sql.Date(utildate1.getTime());
-//            java.util.Date  utildate2 = format.parse(rent.getTodate());
-//            java.sql.Date sqlToDate = new java.sql.Date(utildate2.getTime());
-//
-//            st2.setDate(1, sqlFromDate );
-//            st2.setInt(2, rent.getId());
-//            st2.setString(3, rent.getCarnumber());
-//            st2.setDate(4, sqlToDate);
-//
-//            st2.execute();
-
             return true;
         } catch (SQLException e) {
             System.out.println("sql error: " + e.getMessage());
