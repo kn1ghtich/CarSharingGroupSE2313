@@ -10,7 +10,7 @@ import lombok.Setter;
 @Getter @Setter
 
 public class User {
-    @Setter
+    @Setter //here
     private int id;
     private String name, surname, phonenumber, email, password, tariff;
     private int money;
