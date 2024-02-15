@@ -75,7 +75,7 @@ public class MyApplication {
                             for (Datehist datehist : dh) {
                                 CarDTO carDTO4 = controller.getCarByNumber(datehist.getCarnumber());
                                 datehist.setCarDTO(carDTO4);
-                                result += "\t" + datehist.toString();
+                                result += "\t" + datehist.toString()+"\n";
                             }
                         } else {
                             System.out.println("Purchase History is empty :(");
