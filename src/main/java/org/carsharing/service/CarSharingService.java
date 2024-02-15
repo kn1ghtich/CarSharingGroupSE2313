@@ -66,7 +66,11 @@ public class CarSharingService implements ICarSharingService {
             return repo.carExists(car);
         }
         User user = new User(rent.getId(), rent.getEmail(), rent.getPassword());
-        if (!repo.userExists(user)){
+        if (!repo.userExists(user) ){
+            User user1 = repo.getUserById(rent.getId());
+            if(user1.getPassword() != rent.getPassword() || user1.getEmail() != rent.getEmail()){
+                return false;
+            }
             return repo.userExists(user);
         }
 
