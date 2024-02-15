@@ -35,16 +35,12 @@ public class CarSharingService implements ICarSharingService {
     }
 
 
-
-
-
-
-
     @Override
     public User getUserById(int id) {
         User user = repo.getUserById(id);
         return user;
     }
+
 
     @Override
     public User getUserByEmail(String email) {
@@ -53,13 +49,13 @@ public class CarSharingService implements ICarSharingService {
     }
 
 
-
+    @Override
     public List<Datehist> getPurchaseHistory(int id){
         List<Datehist> dh = repo.getPurchaseHistory(id);
         return dh;
     }
 
-
+    @Override
     public boolean rentCar(Rent rent){
         Car car = new Car(rent.getCarnumber());
         if (!repo.carExists(car)){
@@ -78,12 +74,15 @@ public class CarSharingService implements ICarSharingService {
         return responce;
     }
 
+
+    @Override
     public boolean returnCar(Rent rent) {
         boolean responce = repo.returnCar(rent);
         return responce;
     }
 
-    //7
+
+    @Override
     public boolean addCar(Car car) {
         if( repo.carExists(car)) {
             return false;
@@ -98,7 +97,7 @@ public class CarSharingService implements ICarSharingService {
         List<Car> cars = repo.getAllCars();
         return cars;
     }
-
+    @Override
     public Car getCarByNumber(String carnumber) {
         Car car = repo.getCarByNumber(carnumber);
         return car;
