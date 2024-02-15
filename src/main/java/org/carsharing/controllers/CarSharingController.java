@@ -24,7 +24,7 @@ public class CarSharingController {
     }
 
     public List<UserDTO> getAllUsers() {
-        List<UserDTO> userDTOS = new LinkedList<>();
+        List<UserDTO> userDTOS = new LinkedList<>(); // empty
         List<User> users = service.getAllUsers();
 
         for (User user : users){
@@ -60,8 +60,11 @@ public class CarSharingController {
         return dh;
     }
 
-    public void rentCar() {
-        String response;
+
+
+    public boolean rentCar( Rent rent) {
+        boolean respone = service.rentCar(rent);
+        return respone;
     }
 
     public void returnCar() {    }

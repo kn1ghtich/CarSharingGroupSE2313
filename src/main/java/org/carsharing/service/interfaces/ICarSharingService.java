@@ -24,4 +24,6 @@ public interface ICarSharingService {
     Car getCarByNumber(String carnumber);
 
     List<Datehist> getPurchaseHistory(int id);
+
+    boolean rentCar(Rent rent);
 }

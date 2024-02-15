@@ -15,7 +15,6 @@ public class User {
     private int money;
 
     public User (int id, String name, String surname, String phonenumber, String  email, String  password, int money){
-
         setId(id);
         setName(name);
         setSurname(surname);
@@ -25,10 +24,11 @@ public class User {
         setMoney(money);
     }
 
-    public int getId() {
-        return id;
+    public User (int id, String email, String password){
+        setId(id);
+        setEmail(email);
+        setPassword(password);
     }
-
     public String toString(){
         return id + " " + name + " " + surname;
     }

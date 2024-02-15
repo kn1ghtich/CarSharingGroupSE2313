@@ -2,6 +2,7 @@ package org.carsharing.service;
 
 import org.carsharing.models.Car;
 import org.carsharing.models.Datehist;
+import org.carsharing.models.Rent;
 import org.carsharing.models.User;
 import org.carsharing.service.interfaces.ICarSharingService;
 import org.carsharing.repositories.interfaces.ICarSharingRepository;
@@ -59,7 +60,18 @@ public class CarSharingService implements ICarSharingService {
     }
 
 
-    public void rentCar() {
+    public boolean rentCar(Rent rent){
+        Car car = new Car(rent.getCarnumber());
+        if (!repo.carExists(car)){
+            return repo.carExists(car);
+        }
+        User user = new User(rent.getId(), rent.getEmail(), rent.getPassword());
+        if (!repo.userExists(user)){
+            return repo.userExists(user);
+        }
+
+        boolean responce = repo.rentCar(rent);
+        return responce;
     }
 
     public void returnCar() {

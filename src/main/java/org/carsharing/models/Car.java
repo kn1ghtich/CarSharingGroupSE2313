@@ -24,5 +24,8 @@ public class Car {
         setState(state);
         setPrice(price);
     }
+    public Car(String carnumber){
+        setCarnumber(carnumber);
+    }
 }
 
