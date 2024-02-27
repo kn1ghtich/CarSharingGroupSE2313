@@ -1,20 +1,40 @@
 package org.carsharing;
 
-import org.carsharing.controllers.CarSharingController;
+import org.carsharing.controllers.CarController;
+import org.carsharing.controllers.DateHistController;
+import org.carsharing.controllers.UserController;
 import org.carsharing.data.PostgresDB;
 import org.carsharing.data.interfaces.IDB;
-import org.carsharing.repositories.CarSharingRepository;
-import org.carsharing.repositories.interfaces.ICarSharingRepository;
-import org.carsharing.service.CarSharingService;
-import org.carsharing.service.interfaces.ICarSharingService;
+import org.carsharing.repositories.CarRepository;
+import org.carsharing.repositories.DateHistRepository;
+import org.carsharing.repositories.UserRepository;
+import org.carsharing.services.CarService;
+import org.carsharing.services.DateHistService;
+import org.carsharing.services.UserService;
 
 public class Main {
     public static void main(String[] args) {
-        IDB db = new PostgresDB();
-        ICarSharingRepository repo = new CarSharingRepository(db);
-        ICarSharingService service = new CarSharingService(repo);
-        CarSharingController controller = new CarSharingController(service);
-        MyApplication app = new MyApplication(controller);
+        IDB db = PostgresDB.getInstance();
+        // сервис сделать комент про обьяснение бизнес ложик
+        // переимновать ПУРЧАСЕХИСТОРИ
+        // билдер паттерн
+        //орлерсервис
+        // джоин скл двух таблиц
+        
+
+        UserRepository userrepo = UserRepository.getInstance(db);
+        CarRepository carrepo = CarRepository.getInstance(db);
+        DateHistRepository datehistrepo = DateHistRepository.getInstance(db);
+
+        UserService userService = UserService.getInstance(userrepo);
+        DateHistService dateHistService = DateHistService.getInstance(datehistrepo);
+        CarService carService = CarService.getInstance(userrepo, carrepo);
+
+        UserController userController = UserController.getInstance(userService);
+        CarController carController = CarController.getInstance(carService);
+        DateHistController dateHistController = DateHistController.getInstance(dateHistService);
+
+        MyApplication app = MyApplication.getInstance(userController, carController,dateHistController);
         app.start();
     }
 }
