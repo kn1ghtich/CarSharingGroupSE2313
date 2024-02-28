@@ -20,7 +20,6 @@ public class PostgresDB implements IDB {
         return instance;
     }
 
-
     @Override
     public Connection getConnection() {
         String connectionUrl = "jdbc:postgresql://localhost:5432/ASSING3";

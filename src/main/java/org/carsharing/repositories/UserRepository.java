@@ -12,7 +12,6 @@ public class UserRepository {
     private final IDB db;
     private static volatile UserRepository instance;
     private UserRepository(IDB db){
-        System.out.println("Successfull connection");
         this.db = db;
     }
 

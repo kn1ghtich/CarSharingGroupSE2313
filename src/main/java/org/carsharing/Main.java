@@ -15,12 +15,6 @@ import org.carsharing.services.UserService;
 public class Main {
     public static void main(String[] args) {
         IDB db = PostgresDB.getInstance();
-        // сервис сделать комент про обьяснение бизнес ложик
-        // переимновать ПУРЧАСЕХИСТОРИ
-        // билдер паттерн
-        //орлерсервис
-        // джоин скл двух таблиц
-        
 
         UserRepository userrepo = UserRepository.getInstance(db);
         CarRepository carrepo = CarRepository.getInstance(db);

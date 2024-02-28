@@ -6,13 +6,13 @@ import org.carsharing.dtos.CarDTO;
 
 import java.sql.Date;
 @Getter @Setter
-public class Datehist {
+public class PurchaseHistory {
     Date fromdate, todate;
     int userid;
     String fsname;
     String carnumber;
     CarDTO carDTO;
-    public Datehist(Date fromdate, int userid, String carnumber, Date todate){
+    public PurchaseHistory(Date fromdate, int userid, String carnumber, Date todate){
         setFromdate(fromdate);
         setUserid(userid);
         setCarnumber(carnumber);

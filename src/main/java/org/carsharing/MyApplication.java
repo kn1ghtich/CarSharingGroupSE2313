@@ -6,10 +6,9 @@ import org.carsharing.controllers.UserController;
 import org.carsharing.dtos.CarDTO;
 import org.carsharing.dtos.UserDTO;
 import org.carsharing.models.Car;
-import org.carsharing.models.Datehist;
+import org.carsharing.models.PurchaseHistory;
 import org.carsharing.models.Rent;
 import org.carsharing.models.User;
-import org.carsharing.services.UserService;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -166,14 +165,14 @@ public class MyApplication {
     private void choice5() {
         String result = "";
         int id4 = enterid();
-        List<Datehist> dh = dateHistController.GetFullOrderDescriptionById(id4);
+        List<PurchaseHistory> dh = dateHistController.GetFullOrderDescriptionById(id4);
         UserDTO userDTO4 = userController.getUserById(id4);
         if (userDTO4 != null) {
             result += "The purchase history of " + userDTO4.getName() + " " + userDTO4.getSurname() + "\n";
-            for (Datehist datehist : dh) {
-                CarDTO carDTO4 = carController.getCarByNumber(datehist.getCarnumber());
-                datehist.setCarDTO(carDTO4);
-                result += "\t" + datehist.toString() + "\n";
+            for (PurchaseHistory purchaseHistory : dh) {
+                CarDTO carDTO4 = carController.getCarByNumber(purchaseHistory.getCarnumber());
+                purchaseHistory.setCarDTO(carDTO4);
+                result += "\t" + purchaseHistory.toString() + "\n";
             }
         } else {
             System.out.println("Purchase History is empty :(");
@@ -195,7 +194,6 @@ public class MyApplication {
         System.out.print("Enter to date (2005-05-27): ");
         String todate = scanner.nextLine();
         Rent rent = new Rent(id6, email6, password6, carnumber6, fromdate, todate);
-
         boolean response = carController.rentCar(rent);
         System.out.println(response ? "You rented car successfully!" : "C141 :(");
     }
@@ -244,13 +242,13 @@ public class MyApplication {
 
     private void choice11() {
         String result = "";
-        List<Datehist> dh = dateHistController.GetFullOrderDescription();
+        List<PurchaseHistory> dh = dateHistController.GetFullOrderDescription();
         result += "The purchase history of\n";
         String fsname;
-        for (Datehist datehist : dh) {
-            CarDTO carDTO11 = carController.getCarByNumber(datehist.getCarnumber());
-            datehist.setCarDTO(carDTO11);
-            result += "\t" + datehist.toString2() + "\n";
+        for (PurchaseHistory purchaseHistory : dh) {
+            CarDTO carDTO11 = carController.getCarByNumber(purchaseHistory.getCarnumber());
+            purchaseHistory.setCarDTO(carDTO11);
+            result += "\t" + purchaseHistory.toString2() + "\n";
         }
 
         System.out.println(result);

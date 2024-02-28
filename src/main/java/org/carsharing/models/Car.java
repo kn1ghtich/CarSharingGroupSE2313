@@ -12,18 +12,17 @@ import lombok.Setter;
 public class Car {
     private String  carnumber, brand, model;
     private int id, userid, price;
-    private boolean available, state;
+    private boolean available;
 // в пурчасе пихнуть юзер айди и кар намбер
     // пурч должен связывать юзера и кар
 
-    public Car (int id, int userid, String carnumber, String brand, String model, boolean available, boolean state, int price){
+    public Car (int id, int userid, String carnumber, String brand, String model, boolean available, int price){
         setId(id);
         setUserid(userid);
         setCarnumber(carnumber);
         setBrand(brand);
         setModel(model);
         setAvailable(available);
-        setState(state);
         setPrice(price);
     }
     public Car(String carnumber){
