@@ -219,7 +219,7 @@ public class MyApplication {
         System.out.print("Enter cars price: ");
         String pr = scanner.nextLine();
         int price = Integer.parseInt(pr);
-        Car car7 = new Car(0, 0, carnumber8, brand7, model7, true, true, price);
+        Car car7 = new Car(0, 0, carnumber8, brand7, model7, true, price);
         boolean feedback7 = carController.addCar(car7);
 
         if (feedback7) {
