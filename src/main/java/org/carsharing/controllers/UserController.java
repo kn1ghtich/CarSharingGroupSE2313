@@ -2,7 +2,6 @@ package org.carsharing.controllers;
 
 import org.carsharing.dtos.UserDTO;
 import org.carsharing.models.User;
-import org.carsharing.services.DateHistService;
 import org.carsharing.services.UserService;
 
 import java.util.LinkedList;

@@ -10,18 +10,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DateHistRepository {
+public class PurchaseHistoryRepository {
     private final IDB db;
-    private static volatile DateHistRepository instance;
-    private DateHistRepository(IDB db){
+    private static volatile PurchaseHistoryRepository instance;
+    private PurchaseHistoryRepository(IDB db){
         this.db = db;
     }
 
-    public static DateHistRepository getInstance(IDB db) {
+    public static PurchaseHistoryRepository getInstance(IDB db) {
         if (instance == null) {
             synchronized (UserRepository.class) {
                 if (instance == null) {
-                    instance = new DateHistRepository(db);
+                    instance = new PurchaseHistoryRepository(db);
                 }
             }
         }

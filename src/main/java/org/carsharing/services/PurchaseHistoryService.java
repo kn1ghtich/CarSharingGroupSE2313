@@ -1,23 +1,23 @@
 package org.carsharing.services;
 
 import org.carsharing.models.PurchaseHistory;
-import org.carsharing.repositories.DateHistRepository;
+import org.carsharing.repositories.PurchaseHistoryRepository;
 
 import java.util.List;
 
-public class DateHistService {
-    DateHistRepository datehistrepo;
-    private static volatile DateHistService instance;
+public class PurchaseHistoryService {
+    PurchaseHistoryRepository datehistrepo;
+    private static volatile PurchaseHistoryService instance;
 
-    private DateHistService(DateHistRepository datehistrepo) {
+    private PurchaseHistoryService(PurchaseHistoryRepository datehistrepo) {
         this.datehistrepo = datehistrepo;
     }
 
-    public static DateHistService getInstance(DateHistRepository datehistrepo) {
+    public static PurchaseHistoryService getInstance(PurchaseHistoryRepository datehistrepo) {
         if (instance == null) {
-            synchronized (DateHistService.class) {
+            synchronized (PurchaseHistoryService.class) {
                 if (instance == null) {
-                    instance = new DateHistService(datehistrepo);
+                    instance = new PurchaseHistoryService(datehistrepo);
                 }
             }
         }

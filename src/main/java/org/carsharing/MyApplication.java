@@ -1,7 +1,7 @@
 package org.carsharing;
 
 import org.carsharing.controllers.CarController;
-import org.carsharing.controllers.DateHistController;
+import org.carsharing.controllers.PurchaseHistoryController;
 import org.carsharing.controllers.UserController;
 import org.carsharing.dtos.CarDTO;
 import org.carsharing.dtos.UserDTO;
@@ -17,22 +17,22 @@ import java.util.Scanner;
 public class MyApplication {
     private static UserController userController;
     private static CarController carController;
-    private static DateHistController dateHistController;
+    private static PurchaseHistoryController purchaseHistoryController;
 
     private static final Scanner scanner = new Scanner(System.in);
     private static volatile MyApplication instance;
 
-    private MyApplication(UserController userController, CarController carController, DateHistController dateHistController) {
+    private MyApplication(UserController userController, CarController carController, PurchaseHistoryController purchaseHistoryController) {
         MyApplication.userController = userController;
         MyApplication.carController = carController;
-        MyApplication.dateHistController = dateHistController;
+        MyApplication.purchaseHistoryController = purchaseHistoryController;
     }
 
-    public static MyApplication getInstance(UserController userController, CarController carController, DateHistController dateHistController) {
+    public static MyApplication getInstance(UserController userController, CarController carController, PurchaseHistoryController purchaseHistoryController) {
         if (instance == null) {
             synchronized (MyApplication.class) {
                 if (instance == null) {
-                    instance = new MyApplication(userController, carController, dateHistController);
+                    instance = new MyApplication(userController, carController, purchaseHistoryController);
                 }
             }
         }
@@ -42,8 +42,13 @@ public class MyApplication {
     public void start() {
         boolean exit = false;
         System.out.println("Welcome to Car Sharing!");
+        System.out.print("Enter your login: ");
+        String login = scanner.nextLine();
+        System.out.print("Enter your password: ");
+        String password = scanner.nextLine();
+
         while (!exit) {
-            showMenu();
+            adminMenu();
             try {
                 System.out.print("Select option: ");
                 String op = scanner.nextLine();
@@ -51,43 +56,49 @@ public class MyApplication {
                 System.out.println();
                 switch (option) {
                     case 1:
-                        choice1();  //rename
+                        createUser();
                         break;
                     case 2:
-                        choice2();
+                        getAllUsers();
                         break;
                     case 3:
-                        choice3();
+                        getUserById();
                         break;
                     case 4:
-                        choice4();
+                        getUserByEmail();
                         break;
                     case 5:
-                        choice5();
+                        getPurchaseHistoryById();
                         break;
                     case 6:
-                        choice6();
+                        rentCar();
                         break;
                     case 7:
-                        choice7();
+                        returnCar();
                         break;
                     case 8:
-                        choice8();
+                        addCar();
                         break;
                     case 9:
-                        choice9();
+                        getAllCars();
                         break;
                     case 10:
-                        choice10();
+                        getCarByCarNumber();
                         break;
                     case 11:
-                        choice11();
+                        getWholePurchaseHistory();
+                        break;
+                    case 12:
+                        deleteUser();
+                        break;
+                    case 13:
+                        deleteCar();
                         break;
                     case 0:
                         exit = true;
                         break;
                     default:
-                        System.out.println("There is no such option, choose (0-9).");
+                        System.out.println("There is no such option, choose (0-13).");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Input must be integer: " + e);
@@ -101,17 +112,12 @@ public class MyApplication {
 
 
     private static void showMenu() {
-        System.out.println("1. Create user");
-        System.out.println("2. Show all users");
-        System.out.println("3. Show user by id");
-        System.out.println("4. Show user by email");
-        System.out.println("5. Show purchase history of user");
-        System.out.println("6. Rent car");
-        System.out.println("7. Return car");
-        System.out.println("8. Add Car");
-        System.out.println("9. Show All Cars");
-        System.out.println("10. Show car by car number");
-        System.out.println("11. Show whole purchase history");
+        System.out.println("1. ShowProfile");
+        System.out.println("2. Show purchase history(your)");
+        System.out.println("3. Rent car");
+        System.out.println("4. Return car");
+        System.out.println("5. Show All Cars");
+        System.out.println("6. Show car by car number");
         System.out.println("0. Exit");
     }
 
@@ -133,7 +139,7 @@ public class MyApplication {
     }
 
 
-    private void choice1() {
+    private void createUser() {
         String name = enterName();
         String surname = enterSurname();
         String phonenumber = enterPhone();
@@ -145,27 +151,27 @@ public class MyApplication {
         System.out.println(feedback ? name + " " + surname + " was created successfully!" : "C141 :(");
     }
 
-    private void choice2() {
+    private void getAllUsers() {
         List<UserDTO> users = userController.getAllUsers();
         users.forEach(userDTO -> System.out.println(userDTO));
     }
 
-    private void choice3() {
+    private void getUserById() {
         int id3 = enterid();
         UserDTO userDTO = userController.getUserById(id3);
         System.out.println((userDTO != null) ? "The user by id = " + userDTO : "C141 :(");
     }
 
-    private void choice4() {
+    private void getUserByEmail() {
         String email10 = enterEmail();
         UserDTO userDTO10 = userController.getUserByEmail(email10);
         System.out.println((userDTO10 != null) ? "The user by id = " + userDTO10 : "C141 :(");
     }
 
-    private void choice5() {
+    private void getPurchaseHistoryById() {
         String result = "";
         int id4 = enterid();
-        List<PurchaseHistory> dh = dateHistController.GetFullOrderDescriptionById(id4);
+        List<PurchaseHistory> dh = purchaseHistoryController.GetFullOrderDescriptionById(id4);
         UserDTO userDTO4 = userController.getUserById(id4);
         if (userDTO4 != null) {
             result += "The purchase history of " + userDTO4.getName() + " " + userDTO4.getSurname() + "\n";
@@ -181,7 +187,7 @@ public class MyApplication {
         System.out.println(result);
     }
 
-    private void choice6() {
+    private void rentCar() {
         int id6 = enterid();
         String email6 = enterEmail();
         String password6 = enterPassword();
@@ -198,7 +204,7 @@ public class MyApplication {
         System.out.println(response ? "You rented car successfully!" : "C141 :(");
     }
 
-    private void choice7() {
+    private void returnCar() {
         int id7 = enterid();
         String email7 = enterEmail();
         String password7 = enterPassword();
@@ -210,7 +216,7 @@ public class MyApplication {
         System.out.println(response7 ? "You returned car successfully!" : "You did not return car! C141 :(");
     }
 
-    private void choice8() {
+    private void addCar() {
         String carnumber8 = enterCurnumber();
         System.out.print("Enter brand: ");
         String brand7 = scanner.nextLine();
@@ -229,20 +235,20 @@ public class MyApplication {
         }
     }
 
-    private void choice9() {
+    private void getAllCars() {
         List<CarDTO> cars = carController.getAllCars();
         cars.forEach(carDTO -> System.out.println(carDTO));
     }
 
-    private void choice10() {
+    private void getCarByCarNumber() {
         String carnumber = enterCurnumber();
         CarDTO carDTO = carController.getCarByNumber(carnumber);
         System.out.println((carDTO != null) ? "Car: " + carDTO : "No car was found\nC141:(");
     }
 
-    private void choice11() {
+    private void getWholePurchaseHistory() {
         String result = "";
-        List<PurchaseHistory> dh = dateHistController.GetFullOrderDescription();
+        List<PurchaseHistory> dh = purchaseHistoryController.GetFullOrderDescription();
         result += "The purchase history of\n";
         String fsname;
         for (PurchaseHistory purchaseHistory : dh) {
@@ -252,6 +258,13 @@ public class MyApplication {
         }
 
         System.out.println(result);
+    }
+    private void deleteUser(){
+
+    }
+
+    private void deleteCar(){
+
     }
 
     private String enterName() {
