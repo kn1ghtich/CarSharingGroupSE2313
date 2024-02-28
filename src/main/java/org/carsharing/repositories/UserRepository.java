@@ -2,12 +2,13 @@ package org.carsharing.repositories;
 
 import org.carsharing.data.interfaces.IDB;
 import org.carsharing.models.User;
+import org.carsharing.repositories.interfaces.IUserRepository;
 
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UserRepository {
+public class UserRepository implements IUserRepository {
 
     private final IDB db;
     private static volatile UserRepository instance;
@@ -26,7 +27,7 @@ public class UserRepository {
         return instance;
     }
 
-
+    @Override
     public boolean createUser(User user) {
         Connection con = null;
         try {
@@ -50,6 +51,7 @@ public class UserRepository {
         return false;
     }
 
+    @Override
     public boolean userExists(User user){
         Connection con = null;
         try {
@@ -67,7 +69,7 @@ public class UserRepository {
         return false;
     }
 
-
+    @Override
     public List<User> getAllUsers() {
         Connection con = null;
         try {
@@ -97,7 +99,7 @@ public class UserRepository {
     }
 
 
-
+    @Override
     public User getUserById(int id) {
         Connection con = null;
         try {
@@ -107,7 +109,6 @@ public class UserRepository {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                //User (int id, String name, String surname, String phonenumber, String  email, String  password, int money)
                 return new User(rs.getInt("id") , rs.getString("name"),
                         rs.getString("surname"),
                         rs.getString("phonenumber"),
@@ -122,8 +123,7 @@ public class UserRepository {
         return null;
     }
 
-
-
+    @Override
     public User getUserByEmail(String email) {
         Connection con = null;
         try {
@@ -133,7 +133,6 @@ public class UserRepository {
             st.setString(1, email);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                //User (int id, String name, String surname, String phonenumber, String  email, String  password, int money)
                 return new User(rs.getInt("id") , rs.getString("name"),
                         rs.getString("surname"),
                         rs.getString("phonenumber"),

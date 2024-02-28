@@ -1,14 +1,14 @@
 package org.carsharing.controllers;
 
+import org.carsharing.controllers.interfaces.ICarController;
 import org.carsharing.dtos.CarDTO;
 import org.carsharing.models.Car;
 import org.carsharing.models.Rent;
 import org.carsharing.services.CarService;
-
 import java.util.LinkedList;
 import java.util.List;
 
-public class CarController {
+public class CarController implements ICarController {
     private final CarService carService;
     private static volatile CarController instance;
 
@@ -27,22 +27,13 @@ public class CarController {
         return instance;
     }
 
-    public boolean rentCar(Rent rent) {
-        boolean respone = carService.rentCar(rent);
-        return respone;
-    }
-
-    public boolean returnCar(Rent rent) {
-        boolean respone = carService.returnCar(rent);
-        return respone;
-    }
-
+    @Override
     public boolean addCar(Car car) {
         boolean feedback = carService.addCar(car);
         return feedback;
     }
 
-
+    @Override
     public List<CarDTO> getAllCars() {
         List<Car> cars = carService.getAllCars();
         List<CarDTO> carDTOS = new LinkedList<>();
@@ -51,7 +42,7 @@ public class CarController {
         }
         return carDTOS;
     }
-
+    @Override
     public CarDTO getCarByNumber(String carnumber) {
         Car car = carService.getCarByNumber(carnumber);
         if (car == null) {
